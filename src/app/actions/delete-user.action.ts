@@ -1,7 +1,7 @@
 "use server";
 
 import { auth } from "@/lib/auth";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 
 import { APIError } from "better-auth/api";
 import { revalidatePath } from "next/cache";
