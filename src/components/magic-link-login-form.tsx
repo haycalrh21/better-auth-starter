@@ -42,23 +42,25 @@ export const MagicLinkLoginForm = () => {
   }
 
   return (
-    <details
-      ref={ref}
-      className="max-w-sm rounded-md border border-purple-600 overflow-hidden"
-    >
-      <summary className="flex gap-2 items-center px-2 py-1  bg-purple-600 text-white hover:bg-purple-600/80 transition">
-        Try Magic Link <StarIcon size={16} />
-      </summary>
+    <div className="w-full flex justify-center">
+      <details
+        ref={ref}
+        className="w-full max-w-sm rounded-md border border-purple-600 overflow-hidden"
+      >
+        <summary className="flex gap-2 items-center px-4 py-2 bg-purple-600 text-white hover:bg-purple-600/80 transition cursor-pointer">
+          Try Magic Link <StarIcon size={16} />
+        </summary>
 
-      <form onSubmit={handleSubmit} className="px-2 py-1">
-        <Label htmlFor="email" className="sr-only">
-          Email
-        </Label>
-        <div className="flex gap-2 items-center">
-          <Input type="email" id="email" name="email" />
-          <Button disabled={isPending}>Send</Button>
-        </div>
-      </form>
-    </details>
+        <form onSubmit={handleSubmit} className="px-4 py-3">
+          <Label htmlFor="email" className="sr-only">
+            Email
+          </Label>
+          <div className="flex gap-2 items-center">
+            <Input type="email" id="email" name="email" required />
+            <Button disabled={isPending}>Send</Button>
+          </div>
+        </form>
+      </details>
+    </div>
   );
 };
