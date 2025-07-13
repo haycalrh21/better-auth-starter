@@ -1,8 +1,9 @@
-import { LoginForm } from "@/components/login-form";
-import { MagicLinkLoginForm } from "@/components/magic-link-login-form";
+import { LoginForm } from "@/components/pages/auth/login-form";
+
 import { ReturnButton } from "@/components/return-button";
-import { SignInOauthButton } from "@/components/sign-in-oauth-button";
+import { SignInOauthButton } from "@/components/pages/auth/sign-in-oauth-button";
 import Link from "next/link";
+import { MagicLinkLoginForm } from "@/components/pages/auth/magic-link-login-form";
 
 export default function Page() {
   return (

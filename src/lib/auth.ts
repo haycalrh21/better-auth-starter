@@ -8,7 +8,7 @@ import { prisma } from "@/lib/prisma";
 import { hashPassword, verifyPassword } from "@/lib/argon2";
 import { normalizeName, VALID_DOMAINS } from "@/lib/utils";
 import { ac, roles } from "@/lib/permissions";
-import { sendEmailAction } from "@/actions/send-email.action";
+import { sendEmailAction } from "@/app/actions/send-email.action";
 
 const options = {
   database: prismaAdapter(prisma, {

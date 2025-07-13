@@ -1,6 +1,6 @@
-import { RegisterForm } from "@/components/register-form";
+import { RegisterForm } from "@/components/pages/auth/register-form";
 import { ReturnButton } from "@/components/return-button";
-import { SignInOauthButton } from "@/components/sign-in-oauth-button";
+import { SignInOauthButton } from "@/components/pages/auth/sign-in-oauth-button";
 import Link from "next/link";
 
 export default function Page() {

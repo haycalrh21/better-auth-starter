@@ -1,10 +1,11 @@
-import { ChangePasswordForm } from "@/components/change-password-form";
+import { ChangePasswordForm } from "@/components/pages/profile/change-password-form";
 import { ReturnButton } from "@/components/return-button";
-import { SignOutButton } from "@/components/sign-out-button";
+import { SignOutButton } from "@/components/pages/profile/sign-out-button";
 import { Button } from "@/components/ui/button";
-import { UpdateUserForm } from "@/components/update-user-form";
+import { UpdateUserForm } from "@/components/pages/profile/update-user-form";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
@@ -56,7 +57,9 @@ export default async function Page() {
       {session.user.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <div>
-          <img
+          <Image
+            width={32}
+            height={32}
             src={session.user.image}
             alt="User Image"
             className="size-32 border border-primary rounded-md object-cover"

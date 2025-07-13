@@ -1,5 +1,5 @@
 import { ReturnButton } from "@/components/return-button";
-import { SendVerificationEmailForm } from "@/components/send-verification-email-form";
+import { SendVerificationEmailForm } from "@/components/pages/auth/send-verification-email-form";
 import { redirect } from "next/navigation";
 
 interface PageProps {
