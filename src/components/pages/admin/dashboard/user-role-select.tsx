@@ -1,11 +1,11 @@
 "use client";
 
-import { UserRole } from "@/app/generated/prisma";
 import { admin } from "@/lib/auth-client";
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import { UserRole } from "../../../../../prisma/generated/client";
 
 interface UserRoleSelectProps {
   userId: string;
