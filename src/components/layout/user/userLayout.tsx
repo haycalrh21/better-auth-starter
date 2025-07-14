@@ -9,7 +9,11 @@ export default function Userlayout({
   return (
     <div>
       <Navbar />
-      {children}
+      {/* <section className="flex items-center justify-center h-dvh"> */}
+      <section className="relative min-h-screen w-full overflow-hidden bg-[#222831] text-[#DFD0B8]">
+        {children}
+      </section>
+      {/* </section> */}
     </div>
   );
 }

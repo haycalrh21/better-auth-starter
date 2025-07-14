@@ -190,7 +190,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Rayhan\\Music\\better-auth-starter\\prisma\\generated\\client",
+      "value": "C:\\Users\\Rayhan\\Pictures\\better-auth-starter\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -204,7 +204,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Rayhan\\Music\\better-auth-starter\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\Rayhan\\Pictures\\better-auth-starter\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -229,7 +229,7 @@ const config = {
   },
   "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nenum UserRole {\n  USER\n  ADMIN\n}\n\nmodel Post {\n  id        String   @id @default(uuid())\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  title   String\n  content String\n\n  userId String\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@map(\"posts\")\n}\n\nmodel User {\n  id        String   @id @default(uuid())\n  createdAt DateTime\n  updatedAt DateTime\n\n  name          String\n  email         String    @unique\n  emailVerified Boolean\n  image         String?\n  role          UserRole  @default(USER)\n  banned        Boolean?\n  banReason     String?\n  banExpires    DateTime?\n\n  sessions Session[]\n  accounts Account[]\n  posts    Post[]\n\n  @@map(\"users\")\n}\n\nmodel Session {\n  id        String   @id @default(uuid())\n  createdAt DateTime\n  updatedAt DateTime\n\n  expiresAt      DateTime\n  token          String   @unique\n  ipAddress      String?\n  userAgent      String?\n  impersonatedBy String?\n\n  userId String\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@map(\"sessions\")\n}\n\nmodel Account {\n  id        String   @id @default(uuid())\n  createdAt DateTime\n  updatedAt DateTime\n\n  accountId             String\n  providerId            String\n  accessToken           String?\n  refreshToken          String?\n  idToken               String?\n  accessTokenExpiresAt  DateTime?\n  refreshTokenExpiresAt DateTime?\n  scope                 String?\n  password              String?\n\n  userId String\n  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)\n\n  @@map(\"accounts\")\n}\n\nmodel Verification {\n  id        String    @id @default(uuid())\n  createdAt DateTime?\n  updatedAt DateTime?\n\n  identifier String\n  value      String\n  expiresAt  DateTime\n\n  @@map(\"verifications\")\n}\n",
   "inlineSchemaHash": "7646417b5fa14a81017ff1bbfbc3c11f3041ad0593c8f60224bb8724dcf75bf5",
-  "copyEngine": false
+  "copyEngine": true
 }
 
 const fs = require('fs')
@@ -266,3 +266,9 @@ const PrismaClient = getPrismaClient(config)
 exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
+// file annotations for bundling tools to include these files
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "prisma/generated/client/query_engine-windows.dll.node")
+// file annotations for bundling tools to include these files
+path.join(__dirname, "schema.prisma");
+path.join(process.cwd(), "prisma/generated/client/schema.prisma")

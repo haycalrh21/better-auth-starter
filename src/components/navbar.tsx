@@ -11,6 +11,7 @@ import {
   LinkedinIcon,
 } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Navbar() {
         className="text-2xl font-bold tracking-tight"
       >
         <Link href="/" className="hover:text-primary-foreground">
-          BlogName
+          <img src="/logo.png" className="object-center w-30" />
         </Link>
       </motion.div>
 
@@ -72,29 +73,6 @@ export default function Navbar() {
             className="text-lg font-medium hover:text-primary-foreground"
           >
             Posts
-          </Link>
-        </motion.div>
-        <motion.div variants={navLinkVariants} className="flex space-x-4">
-          <Link
-            href="#"
-            aria-label="Twitter"
-            className="hover:text-primary-foreground"
-          >
-            <TwitterIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            href="#"
-            aria-label="GitHub"
-            className="hover:text-primary-foreground"
-          >
-            <GithubIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            href="#"
-            aria-label="LinkedIn"
-            className="hover:text-primary-foreground"
-          >
-            <LinkedinIcon className="h-6 w-6" />
           </Link>
         </motion.div>
       </motion.div>
